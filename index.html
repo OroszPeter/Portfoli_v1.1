@@ -7,89 +7,118 @@
     <!-- Bootstrap 5 CSS link -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEJt3W4f+J6A9q+5nD9h36gW06VdX9Yq5D9j0OnyJzzbJ3oBzVjyXEl6jQwQz" crossorigin="anonymous">
     <style>
-        *{
-            user-select: none;
-        }
-        /* Sidebar stílusok */
-        #sidebar {
-            height: 100vh;
-            background-color: #023047 ;
-            color: white;
-            padding-top: 20px;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 250px;
-            transition: transform 0.3s ease;
-            color: #d90924;
-        }
+* {
+    user-select: none;
+}
 
-        #sidebar ul {
-            list-style-type: none;
-            padding-left: 0;
-        }
+/* Oldalsáv stílusok */
+#sidebar {
+    height: 100vh;
+    background-color: rgba(2, 48, 71); /* Átlátszó kék háttér */
+    color: white;
+    padding-top: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    transition: transform 0.3s ease;
+    z-index: 2; /* Hóesés fölött */
+}
 
-        #sidebar ul li {
-            padding: 10px;
-            text-align: left;
-        }
+#sidebar ul {
+    list-style-type: none;
+    padding-left: 0;
+}
 
-        #sidebar ul li a {
-            color: #d90924;
-            text-decoration: none;
-            display: block;
-        }
+#sidebar ul li {
+    padding: 10px;
+    text-align: left;
+}
 
-        #sidebar ul li a:hover {
-            background-color: #495057;
-        }
+#sidebar ul li a {
+    color: #d90924;
+    text-decoration: none;
+    display: block;
+}
 
-        body {
-            background-color: #8d99ae;
-        }
-        p{
-            color: #edf2f4;
-        }
+#sidebar ul li a:hover {
+    background-color: #495057;
+}
 
-        /* Alapértelmezett, rejtett szekciók */
-        .section {
-            display: none;
-        }
-        h2{
-            color: #ef233c;
-        }
-        a{
-            text-decoration: none;
-            color: #edf2f4;
-        }
-        a:hover{
-            color: #023047;
-        }
-
-        body{
-    padding: 0;
+/* Teljes oldal háttér */
+body {
+    background-color: #8d99ae;
     margin: 0;
-  }
-  
-  
-  #card{
+    padding: 0;
+    overflow: hidden;
+}
+
+/* Hóesés effekt */
+#snow_fall {
+    width: 100%;
+    height: 100vh;
+    position: fixed; /* Fixálás a háttérhez */
+    top: 0;
+    left: 0;
+    background: #0c0c0c; /* Sötét háttér */
+    background-size: cover;
+    z-index: -1; /* Legalsó réteg */
+}
+
+/* Tartalom-container stílusok */
+.container {
+    position: relative;
+    z-index: 1; /* Hóesés fölött */
+    margin-left: 260px; /* Oldalsáv miatt */
+    padding-top: 20px;
+}
+
+/* Section stílusok */
+.section {
+    display: none;
+    background: rgba(12, 12, 12, 0.8); /* Átlátszó fekete háttér */
+    padding: 20px;
+    border-radius: 10px; /* Esztétikai kerekítés */
+    color: #edf2f4; /* Szöveg színe */
+    margin-bottom: 20px;
+}
+
+/* Szövegek */
+h2 {
+    color: #ef233c; /* Kontrasztos piros */
+}
+
+p, li a {
+    color: #edf2f4; /* Világos szöveg */
+}
+
+li a:hover {
+    color: #023047; /* Hover szín */
+}
+
+/* Kerek ikon */
+#card {
     width: 100px;
-    left: 50px;
-    top: 500px;
     height: 100px;
-    border-radius: 50px;
+    top: 500px;
+    left: 50px;
+    border-radius: 50%;
     background-color: #023047;
     border: #edf2f4 3px solid;
-    cursor: pointer;
     position: fixed;
     z-index: 1000;
-  }
+    cursor: pointer;
+    transition: transform 0.3s ease; /* Animáció pattanáskor */
+}
+
     </style>
 </head>
 <body>
+    <div id="snow_fall"></div> <!-- Hóesés effekt itt marad -->
     <div id="container">
         <div id="card"></div>
-   </div>
+    </div>
+
     <!-- Sidebar -->
     <div id="sidebar">
         <h1 class="text-center ps-5">Orosz Péter portfóliója</h1>
@@ -105,16 +134,14 @@
     <div class="container ps-5" style="margin-left: 260px; padding-top: 20px;">
         <div id="about-me" class="section">
             <h2>Rólam</h2>
-            <p>
-                Szoftverfeljesztő és tesztelő tanuló a SOB-ban.
-            </p>
+            <p>Szoftverfeljesztő és tesztelő tanuló a SOB-ban.</p>
         </div>
 
         <div id="classwork" class="section ps-5">
             <h2>Órai munkáim</h2>
             <p>Itt találhatók az órai munkáim.</p>
             <li><a href="https://oroszpeter.github.io/OraiLista/" target="_blank">Az első óra</a></li>
-           <li><a href="https://oroszpeter.github.io/Bevlist/" target="_blank">Lista</a></li>
+            <li><a href="https://oroszpeter.github.io/Bevlist/" target="_blank">Lista</a></li>
             <li><a href="https://nodetabla.onrender.com/" target="_blank">Kijelző tábla alap (Node.js)</a></li>
             <li><a href="https://oroszpeter.github.io/Szamologep/" target="_blank">Számológép</a></li>
             <li><a href="https://oroszpeter.github.io/mapgame/" target="_blank">Térkép játék</a></li>
@@ -131,7 +158,6 @@
         <div id="projects" class="section ps-5">
             <h2>Projektjeim</h2>
             <p>Itt találhatók a saját projektjeim.</p>
-            <li><a href="https://oroszpeter.github.io/OP_elso/" target="_blank">Az első portfólió</a></li>
             <li><a href="https://oroszpeter.github.io/cock/" target="_blank">Óra</a></li>
             <li><a href="https://oroszpeter.github.io/rockpaperscissors/" target="_blank">Kő, papír olló játék</a></li>
             <li><a href="https://oroszpeter.github.io/Palindrome/" target="_blank">Palindróma</a></li>
@@ -140,6 +166,8 @@
             <li><a href="https://oroszpeter.github.io/CarFrontend/" target="_blank">Autókereskedés weboldal</a></li>
         </div>
     </div>
+   <script src="particles.js"></script>
+   <script src="app.js"></script>
 
     <!-- Bootstrap 5 JS és Popper.js -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-KyZXEJt3W4f+J6A9q+5nD9h36gW06VdX9Yq5D9j0OnyJzzbJ3oBzVjyXEl6jQwQz" crossorigin="anonymous"></script>
